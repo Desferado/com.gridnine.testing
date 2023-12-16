@@ -4,15 +4,21 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Flight> flights =  FlightBuilder.createFlights();
+
         FlightFilterImpl flightFilter = new FlightFilterImpl();
 
+        List<Flight> flights =  FlightBuilder.createFlights();
+
         System.out.println("All flights:");
+        flightFilter.allFlight(flights);
+        System.out.println("-----------------------------------");
+
+        System.out.println("All flights segments:");
         flightFilter.allFlightSegments(flights);
         System.out.println("-----------------------------------");
 
         System.out.println("Flights with departure before the current time:");
-        flightFilter.departureToTheCurrentTime(flights);
+        flightFilter.departureBeforeToTheCurrentTime(flights);
 
         System.out.println("Flights segments, with arrival date earlier than departure date:");
         flightFilter.segmentsWithTheArrivalDateEarlierThanTheDepartureDate(flights);
